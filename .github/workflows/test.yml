@@ -1,0 +1,29 @@
+name: Elixir CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        version-file: .tool-versions
+        version-type: strict
+
+    - name: Install dependencies
+      run: mix deps.get
+
+    - name: Run tests
+      run: mix test
