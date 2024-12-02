@@ -8,7 +8,10 @@ defmodule AOC2024.MixProject do
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      preferred_cli_env: [
+        "test.watch": :test
+      ]
     ]
   end
 
@@ -23,7 +26,8 @@ defmodule AOC2024.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:combine, "~> 0.10.0"}
+      {:combine, "~> 0.10.0"},
+      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
