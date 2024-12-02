@@ -7,17 +7,16 @@ defmodule AOC2024.Day02 do
 
   def name(), do: "Day 2: Red-Nosed Reports"
 
-  @type inputPt1 :: any()
-  @type inputPt2 :: any()
+  @type inputPt1 :: list(list(integer()))
+  @type inputPt2 :: list(list(integer()))
   @type outputPt1 :: integer()
   @type outputPt2 :: integer()
 
   defp parse_line(input),
-    do: Combine.parse(input, sep_by(sep_by1(integer(), spaces()), newline())) |> List.first()
+    do: Combine.parse(input, sep_by1(sep_by1(integer(), spaces()), newline())) |> List.first()
 
   @spec parsePt1(String.t()) :: inputPt1 | {:error, any()}
   def parsePt1(input) do
-    # combine is parsing to chars, need integers
     input
     |> parse_line()
   end
