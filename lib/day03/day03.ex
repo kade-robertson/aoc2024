@@ -1,6 +1,5 @@
 defmodule AOC2024.Day03 do
-  @input_file File.read!("lib/day03/input.txt")
-  def input(), do: @input_file
+  def input(), do: AOC2024.Input.read("lib/day03/input.txt")
 
   def name(), do: "Day 3: Mull It Over"
 

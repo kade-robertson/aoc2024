@@ -25,5 +25,17 @@ jobs:
     - name: Install dependencies
       run: mix deps.get
 
+    - name: Setup input cache
+      id: aoc-inputs
+      uses: actions/cache@v4
+      with:
+        path: lib/**/input.txt
+        key: aoc-inputs
+
+    - name: Run (fetch inputs if necessary)
+      run: mix run 2>&1 > /dev/null
+      env:
+        AOC_SESSION: ${{ secrets.AOC_SESSION }}
+
     - name: Run tests
       run: mix test

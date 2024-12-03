@@ -2,8 +2,7 @@ import Combine.Parsers.Base
 import Combine.Parsers.Text
 
 defmodule AOC2024.Day02 do
-  @input_file File.read!("lib/day02/input.txt")
-  def input(), do: @input_file
+  def input(), do: AOC2024.Input.read("lib/day02/input.txt")
 
   def name(), do: "Day 2: Red-Nosed Reports"
 

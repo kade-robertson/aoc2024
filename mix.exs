@@ -27,6 +27,8 @@ defmodule AOC2024.MixProject do
   defp deps do
     [
       {:combine, "~> 0.10.0"},
+      {:dotenv, "~> 3.0.0"},
+      {:httpoison, "~> 2.0"},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
