@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,6 +21,17 @@ jobs:
       with:
         version-file: .tool-versions
         version-type: strict
+
+    - name: Elixir cache
+      id: elixir-cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          deps
+          _build
+        key: mix-${{ runner.os }}-${{ hashFiles('**/mix.lock') }}
+        restore-keys: |
+          mix-${{ runner.os }}-
 
     - name: Install dependencies
       run: mix deps.get
