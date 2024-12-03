@@ -43,8 +43,8 @@ jobs:
         path: lib/**/input.txt
         key: aoc-inputs
 
-    - name: Run (fetch inputs if necessary)
-      run: mix run 2>&1 > /dev/null
+    - name: Fetch inputs
+      run: mix input.get
       env:
         AOC_SESSION: ${{ secrets.AOC_SESSION }}
 
