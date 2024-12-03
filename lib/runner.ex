@@ -2,7 +2,8 @@ defmodule AOC2024.Runner do
   def problems() do
     [
       AOC2024.Day01,
-      AOC2024.Day02
+      AOC2024.Day02,
+      AOC2024.Day03
     ]
   end
 
