@@ -41,7 +41,10 @@ jobs:
       uses: actions/cache@v4
       with:
         path: lib/**/input.txt
-        key: aoc-inputs
+        key: aoc-inputs-${{ hashFiles('lib/**/input.txt') }}
+        restore-keys: |
+          aoc-inputs-
+          aoc-inputs
 
     - name: Fetch inputs
       run: mix input.get
