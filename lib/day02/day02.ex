@@ -6,23 +6,23 @@ defmodule AOC2024.Day02 do
 
   def name(), do: "Day 2: Red-Nosed Reports"
 
-  @type inputPt1 :: list(list(integer()))
-  @type inputPt2 :: list(list(integer()))
-  @type outputPt1 :: integer()
-  @type outputPt2 :: integer()
+  @type input_part_1 :: list(list(integer()))
+  @type input_part_2 :: list(list(integer()))
+  @type output_part_1 :: integer()
+  @type output_part_2 :: integer()
 
   defp parse_line(input),
     do: Combine.parse(input, sep_by1(sep_by1(integer(), spaces()), newline())) |> List.first()
 
-  @spec parsePt1(String.t()) :: inputPt1 | {:error, any()}
-  def parsePt1(input) do
+  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  def parse_part_1(input) do
     input
     |> parse_line()
   end
 
-  @spec parsePt2(String.t()) :: inputPt2 | {:error, any()}
-  def parsePt2(input) do
-    input |> parsePt1()
+  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  def parse_part_2(input) do
+    input |> parse_part_1()
   end
 
   def is_pair_decreasing({a, b}),
@@ -37,8 +37,8 @@ defmodule AOC2024.Day02 do
   def is_decreasing(pairs),
     do: pairs |> Enum.all?(&is_pair_decreasing/1)
 
-  @spec solvePt1(inputPt1()) :: outputPt1()
-  def solvePt1(input) do
+  @spec solve_part_1(input_part_1()) :: output_part_1()
+  def solve_part_1(input) do
     input
     |> Enum.map(fn l -> Enum.zip(l, Enum.drop(l, 1)) end)
     |> Enum.filter(fn l -> is_increasing(l) || is_decreasing(l) end)
@@ -53,8 +53,8 @@ defmodule AOC2024.Day02 do
     |> Enum.any?(fn l -> is_increasing(l) || is_decreasing(l) end)
   end
 
-  @spec solvePt2(inputPt2()) :: outputPt2()
-  def solvePt2(input) do
+  @spec solve_part_2(input_part_2()) :: output_part_2()
+  def solve_part_2(input) do
     input
     |> Enum.count(&check_combinations/1)
   end

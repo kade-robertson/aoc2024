@@ -3,13 +3,13 @@ defmodule AOC2024.Day04 do
 
   def name(), do: "Day 4: Mull It Over"
 
-  @type inputPt1 :: list(list(char()))
-  @type inputPt2 :: list(list(char()))
-  @type outputPt1 :: integer()
-  @type outputPt2 :: integer()
+  @type input_part_1 :: list(list(char()))
+  @type input_part_2 :: list(list(char()))
+  @type output_part_1 :: integer()
+  @type output_part_2 :: integer()
 
-  @spec parsePt1(String.t()) :: inputPt1 | {:error, any()}
-  def parsePt1(input) do
+  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  def parse_part_1(input) do
     input |> String.split("\n") |> Enum.map(&String.graphemes/1)
   end
 
@@ -70,14 +70,14 @@ defmodule AOC2024.Day04 do
     |> scan_columns()
   end
 
-  @spec solvePt1(inputPt1()) :: outputPt1()
-  def solvePt1(input) do
+  @spec solve_part_1(input_part_1()) :: output_part_1()
+  def solve_part_1(input) do
     scan_rows(input) + scan_columns(input) + scan_fwd_diagonals(input) + scan_bwd_diagonals(input)
   end
 
-  @spec parsePt2(String.t()) :: inputPt2 | {:error, any()}
-  def parsePt2(input) do
-    input |> parsePt1()
+  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  def parse_part_2(input) do
+    input |> parse_part_1()
   end
 
   def is_xcrossmas([["M", _, "S"], [_, "A", _], ["M", _, "S"]]), do: true
@@ -101,8 +101,8 @@ defmodule AOC2024.Day04 do
     end)
   end
 
-  @spec solvePt2(inputPt2()) :: outputPt2()
-  def solvePt2(input) do
+  @spec solve_part_2(input_part_2()) :: output_part_2()
+  def solve_part_2(input) do
     input |> scan_xcross()
   end
 end

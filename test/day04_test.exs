@@ -3,8 +3,8 @@ defmodule AOC2024Test.Day04 do
   alias AOC2024.Day04
   require AOC2024.Day04
 
-  test "parsePt1" do
-    assert Day04.parsePt1("MMMSXXMASM
+  test "parse_part_1" do
+    assert Day04.parse_part_1("MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
 MSAMASMSMX
@@ -27,8 +27,8 @@ MXMXAXMASX") == [
            ]
   end
 
-  test "solvePt1" do
-    assert Day04.solvePt1([
+  test "solve_part_1" do
+    assert Day04.solve_part_1([
              ["M", "M", "M", "S", "X", "X", "M", "A", "S", "M"],
              ["M", "S", "A", "M", "X", "M", "S", "M", "S", "A"],
              ["A", "M", "X", "S", "X", "M", "A", "A", "M", "M"],
@@ -42,17 +42,17 @@ MXMXAXMASX") == [
            ]) == 18
   end
 
-  test "solvePt1 with my input" do
+  test "solve_part_1 with my input" do
     input =
       Day04.input()
-      |> Day04.parsePt1()
-      |> Day04.solvePt1()
+      |> Day04.parse_part_1()
+      |> Day04.solve_part_1()
 
     assert input == 2642
   end
 
-  test "parsePt2" do
-    assert Day04.parsePt2("MMMSXXMASM
+  test "parse_part_2" do
+    assert Day04.parse_part_2("MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
 MSAMASMSMX
@@ -75,8 +75,8 @@ MXMXAXMASX") == [
            ]
   end
 
-  test "solvePt2" do
-    assert Day04.solvePt2([
+  test "solve_part_2" do
+    assert Day04.solve_part_2([
              ["M", "M", "M", "S", "X", "X", "M", "A", "S", "M"],
              ["M", "S", "A", "M", "X", "M", "S", "M", "S", "A"],
              ["A", "M", "X", "S", "X", "M", "A", "A", "M", "M"],
@@ -90,11 +90,11 @@ MXMXAXMASX") == [
            ]) == 9
   end
 
-  test "solvePt2 with my input" do
+  test "solve_part_2 with my input" do
     input =
       Day04.input()
-      |> Day04.parsePt2()
-      |> Day04.solvePt2()
+      |> Day04.parse_part_2()
+      |> Day04.solve_part_2()
 
     assert input == 1974
   end

@@ -6,30 +6,30 @@ defmodule AOC2024.Day01 do
 
   def name(), do: "Day 1: Historian Hysteria"
 
-  @type inputPt1 :: list({integer(), integer()})
-  @type inputPt2 :: list({integer(), integer()})
-  @type outputPt1 :: integer()
-  @type outputPt2 :: integer()
+  @type input_part_1 :: list({integer(), integer()})
+  @type input_part_2 :: list({integer(), integer()})
+  @type output_part_1 :: integer()
+  @type output_part_2 :: integer()
 
   defp line_parser, do: pipe([integer(), ignore(spaces()), integer()], &Function.identity/1)
 
   defp parse_line(input),
     do: Combine.parse(input, sep_by(line_parser(), newline())) |> List.first()
 
-  @spec parsePt1(String.t()) :: inputPt1 | {:error, any()}
-  def parsePt1(input) do
+  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  def parse_part_1(input) do
     input
     |> parse_line
     |> Enum.map(fn [a, b] -> {a, b} end)
   end
 
-  @spec parsePt2(String.t()) :: inputPt2 | {:error, any()}
-  def parsePt2(input) do
-    input |> parsePt1()
+  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  def parse_part_2(input) do
+    input |> parse_part_1()
   end
 
-  @spec solvePt1(inputPt1()) :: outputPt1()
-  def solvePt1(input) do
+  @spec solve_part_1(input_part_1()) :: output_part_1()
+  def solve_part_1(input) do
     input
     |> Enum.unzip()
     |> Tuple.to_list()
@@ -39,8 +39,8 @@ defmodule AOC2024.Day01 do
     |> Enum.sum()
   end
 
-  @spec solvePt2(inputPt2()) :: outputPt2()
-  def solvePt2(input) do
+  @spec solve_part_2(input_part_2()) :: output_part_2()
+  def solve_part_2(input) do
     [first, second] =
       input
       |> Enum.unzip()

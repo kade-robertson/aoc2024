@@ -30,12 +30,12 @@ defmodule AOC2024.Runner do
 
     IO.puts(
       " - Part 1: " <>
-        run_problem_part(input, &problem.parsePt1/1, &problem.solvePt1/1)
+        run_problem_part(input, &problem.parse_part_1/1, &problem.solve_part_1/1)
     )
 
     IO.puts(
       " - Part 2: " <>
-        run_problem_part(input, &problem.parsePt2/1, &problem.solvePt2/1)
+        run_problem_part(input, &problem.parse_part_2/1, &problem.solve_part_2/1)
     )
   end
 
