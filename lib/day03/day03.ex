@@ -4,7 +4,7 @@ defmodule AOC2024.Day03 do
   def name(), do: "Day 3: Mull It Over"
 
   @type inputPt1 :: list({integer(), integer()})
-  @type inputPt2 :: list({integer(), integer()})
+  @type inputPt2 :: list({integer(), integer()} | boolean())
   @type outputPt1 :: integer()
   @type outputPt2 :: integer()
 
@@ -37,8 +37,6 @@ defmodule AOC2024.Day03 do
 
   @spec solvePt2(inputPt2()) :: outputPt2()
   def solvePt2(input) do
-    # reduce by multiplication, but if a false is seen, ignore until a true is
-    # seen.
     {_, result} =
       Enum.reduce(input, {true, 0}, fn
         {a, b}, {state, acc} -> {state, if(state, do: acc + a * b, else: acc)}
