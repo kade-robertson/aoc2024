@@ -1,7 +1,7 @@
 defmodule AOC2024.Day04 do
   def input(), do: AOC2024.Input.read("lib/day04/input.txt")
 
-  def name(), do: "Day 4: Mull It Over"
+  def name(), do: "Day 4: Ceres Search"
 
   @type input_part_1 :: list(list(char()))
   @type input_part_2 :: list(list(char()))
