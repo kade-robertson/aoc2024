@@ -25,7 +25,6 @@ defmodule AOC2024Test.Day06 do
            ) == 41
   end
 
-  @tag :skip
   test "solve_part_1 with my input" do
     input =
       Day06.input()

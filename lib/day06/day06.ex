@@ -106,7 +106,6 @@ defmodule AOC2024.Day06 do
     # there, add it to the obstacle set, and do the same math as part 1, but
     # stop on a loop when a visited set contains the same direction as well.
     {obstructions, guard_position, size} = input
-    {w, h} = size
 
     visited =
       move_guard(obstructions, guard_position, {0, -1}, size, MapSet.new([guard_position]))
