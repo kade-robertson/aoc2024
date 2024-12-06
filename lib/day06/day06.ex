@@ -108,23 +108,22 @@ defmodule AOC2024.Day06 do
     {obstructions, guard_position, size} = input
     {w, h} = size
 
-    Enum.reduce(0..(w - 1), 0, fn x, acc ->
-      Enum.reduce(0..(h - 1), acc, fn y, acc ->
-        if MapSet.member?(obstructions, {x, y}) or {x, y} == guard_position do
-          acc
-        else
-          new_obstructions = MapSet.put(obstructions, {x, y})
+    visited =
+      move_guard(obstructions, guard_position, {0, -1}, size, MapSet.new([guard_position]))
+      |> MapSet.delete(guard_position)
 
-          acc +
-            move_guard_pt2(
-              new_obstructions,
-              guard_position,
-              {0, -1},
-              size,
-              MapSet.new([{guard_position, {0, -1}}])
-            )
-        end
-      end)
+    visited
+    |> Enum.reduce(0, fn {x, y}, acc ->
+      new_obstructions = MapSet.put(obstructions, {x, y})
+
+      acc +
+        move_guard_pt2(
+          new_obstructions,
+          guard_position,
+          {0, -1},
+          size,
+          MapSet.new([{guard_position, {0, -1}}])
+        )
     end)
   end
 end
