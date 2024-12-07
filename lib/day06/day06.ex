@@ -8,7 +8,8 @@ defmodule AOC2024.Day06 do
 
   @type input_part_1 ::
           {MapSet.t({integer(), integer()}), {integer(), integer()}, {integer(), integer()}}
-  @type input_part_2 :: any()
+  @type input_part_2 ::
+          {MapSet.t({integer(), integer()}), {integer(), integer()}, {integer(), integer()}}
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
