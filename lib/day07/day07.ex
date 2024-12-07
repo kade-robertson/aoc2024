@@ -29,17 +29,13 @@ defmodule AOC2024.Day07 do
 
   @spec can_be_evaluated_to?(integer(), [integer()], integer()) :: boolean()
   def can_be_evaluated_to?(target, [], current), do: current == target
+  def can_be_evaluated_to?(target, _, current) when current > target, do: false
+  def can_be_evaluated_to?(target, [head | tail], 0), do: can_be_evaluated_to?(target, tail, head)
 
-  def can_be_evaluated_to?(target, numbers, current) do
-    {[head], rest} = Enum.split(numbers, 1)
-
-    if current == 0 do
-      can_be_evaluated_to?(target, rest, head)
-    else
-      can_be_evaluated_to?(target, rest, current + head) or
-        can_be_evaluated_to?(target, rest, current * head)
-    end
-  end
+  def can_be_evaluated_to?(target, [head | tail], current),
+    do:
+      can_be_evaluated_to?(target, tail, current + head) or
+        can_be_evaluated_to?(target, tail, current * head)
 
   @spec solve_part_1(input_part_1()) :: output_part_1()
   def solve_part_1(input) do
@@ -60,22 +56,20 @@ defmodule AOC2024.Day07 do
 
   @spec can_be_evaluated_to_pt2?(integer(), [integer()], integer()) :: boolean()
   def can_be_evaluated_to_pt2?(target, [], current), do: current == target
+  def can_be_evaluated_to_pt2?(target, _, current) when current > target, do: false
 
-  def can_be_evaluated_to_pt2?(target, numbers, current) do
-    {[head], rest} = Enum.split(numbers, 1)
+  def can_be_evaluated_to_pt2?(target, [head | tail], 0),
+    do: can_be_evaluated_to_pt2?(target, tail, head)
 
-    if current == 0 do
-      can_be_evaluated_to_pt2?(target, rest, head)
-    else
-      can_be_evaluated_to_pt2?(target, rest, current + head) or
-        can_be_evaluated_to_pt2?(target, rest, current * head) or
+  def can_be_evaluated_to_pt2?(target, [head | tail], current),
+    do:
+      can_be_evaluated_to_pt2?(target, tail, current + head) or
+        can_be_evaluated_to_pt2?(target, tail, current * head) or
         can_be_evaluated_to_pt2?(
           target,
-          rest,
+          tail,
           current * 10 ** (Integer.digits(head) |> length()) + head
         )
-    end
-  end
 
   @spec solve_part_2(input_part_2()) :: output_part_2()
   def solve_part_2(input) do
