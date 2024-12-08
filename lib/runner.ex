@@ -16,6 +16,13 @@ defmodule AOC2024.Runner do
     input |> parse.() |> solve.()
   end
 
+  def time_fmt(t) when t < 1000, do: Integer.to_string(t) <> "µs"
+
+  def time_fmt(t) when t < 1_000_000,
+    do: :erlang.float_to_binary(t / 1_000.0, decimals: 2) <> "ms"
+
+  def time_fmt(t), do: :erlang.float_to_binary(t / 1_000_000.0, decimals: 2) <> "s"
+
   def run_problem_part(input, parse, solve) do
     warmup(input, parse, solve)
 
@@ -24,7 +31,7 @@ defmodule AOC2024.Runner do
 
     Integer.to_string(solved) <>
       " (parse: " <>
-      Integer.to_string(parse_time) <> "µs, solve: " <> Integer.to_string(solve_time) <> "µs)"
+      time_fmt(parse_time) <> ", solve: " <> time_fmt(solve_time) <> ")"
   end
 
   def run_problem(problem) do
