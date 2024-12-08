@@ -7,12 +7,13 @@ defmodule AOC2024.Runner do
       AOC2024.Day04,
       AOC2024.Day05,
       AOC2024.Day06,
-      AOC2024.Day07
+      AOC2024.Day07,
+      AOC2024.Day08
     ]
   end
 
   def warmup(input, parse, solve) do
-    Enum.each(1..5, fn _ -> input |> parse.() |> solve.() end)
+    input |> parse.() |> solve.()
   end
 
   def run_problem_part(input, parse, solve) do
