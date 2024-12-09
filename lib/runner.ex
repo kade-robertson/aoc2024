@@ -8,7 +8,8 @@ defmodule AOC2024.Runner do
       AOC2024.Day05,
       AOC2024.Day06,
       AOC2024.Day07,
-      AOC2024.Day08
+      AOC2024.Day08,
+      AOC2024.Day09
     ]
   end
 

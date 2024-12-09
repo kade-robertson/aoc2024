@@ -7,7 +7,7 @@ defmodule AOC2024.Day08 do
   def name(), do: "Day 8: Resonant Collinearity"
 
   @type input_part_1 :: {%{String.t() => [{integer(), integer()}]}, integer(), integer()}
-  @type input_part_2 :: [{integer(), [integer()]}]
+  @type input_part_2 :: {%{String.t() => [{integer(), integer()}]}, integer(), integer()}
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
@@ -83,31 +83,6 @@ defmodule AOC2024.Day08 do
 
     bwd_antinode({x1 - dx, y1 - dy}, {dx, dy}, bounds) ++
       fwd_antinode({x2 - dx, y2 - dy}, {dx, dy}, bounds)
-  end
-
-  def draw(antennas, antinodes, {width, height}) do
-    for y <- 0..(height - 1) do
-      for x <- 0..(width - 1) do
-        antenna =
-          Enum.find_value(antennas, fn {chr, positions} ->
-            Enum.find_value(positions, fn {x1, y1} -> if x1 == x and y1 == y, do: chr end)
-          end)
-
-        if antenna do
-          IO.write(antenna)
-        else
-          antinode = Enum.find_value(antinodes, fn {x1, y1} -> x1 == x and y1 == y end)
-
-          if antinode do
-            IO.write("#")
-          else
-            IO.write(".")
-          end
-        end
-      end
-
-      IO.puts("")
-    end
   end
 
   @spec solve_part_2(input_part_2()) :: output_part_2()
