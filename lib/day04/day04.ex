@@ -8,7 +8,7 @@ defmodule AOC2024.Day04 do
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     input |> String.split("\n") |> Enum.map(&String.graphemes/1)
   end
@@ -75,7 +75,7 @@ defmodule AOC2024.Day04 do
     scan_rows(input) + scan_columns(input) + scan_fwd_diagonals(input) + scan_bwd_diagonals(input)
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end

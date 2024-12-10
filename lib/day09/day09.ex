@@ -8,7 +8,7 @@ defmodule AOC2024.Day09 do
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     input
     |> String.trim()
@@ -52,7 +52,7 @@ defmodule AOC2024.Day09 do
     |> Enum.reduce(0, fn {x, i}, acc -> acc + x * i end)
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end

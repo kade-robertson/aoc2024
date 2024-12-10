@@ -16,14 +16,14 @@ defmodule AOC2024.Day01 do
   defp parse_line(input),
     do: Combine.parse(input, sep_by(line_parser(), newline())) |> List.first()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     input
     |> parse_line
     |> Enum.map(fn [a, b] -> {a, b} end)
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end

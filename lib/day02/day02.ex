@@ -14,13 +14,13 @@ defmodule AOC2024.Day02 do
   defp parse_line(input),
     do: Combine.parse(input, sep_by1(sep_by1(integer(), spaces()), newline())) |> List.first()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     input
     |> parse_line()
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end

@@ -8,7 +8,7 @@ defmodule AOC2024.Day03 do
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     Regex.scan(~r/mul\((\d+),(\d+)\)/, input)
     |> Enum.map(fn l -> Enum.drop(l, 1) end)
@@ -23,7 +23,7 @@ defmodule AOC2024.Day03 do
     end
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     Regex.scan(~r/(mul\((\d+),(\d+)\))|(do\(\))|(don't\(\))/, input)
     |> Enum.map(fn l -> Enum.drop(l, 2) end)

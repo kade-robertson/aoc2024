@@ -68,7 +68,7 @@ defmodule AOC2024.Day10 do
     |> Enum.sum()
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end

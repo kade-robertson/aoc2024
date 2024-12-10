@@ -11,7 +11,7 @@ defmodule AOC2024.Day05 do
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
-  @spec parse_part_1(String.t()) :: input_part_1 | {:error, any()}
+  @spec parse_part_1(String.t()) :: input_part_1
   def parse_part_1(input) do
     parsed =
       input
@@ -62,7 +62,7 @@ defmodule AOC2024.Day05 do
     |> Enum.sum()
   end
 
-  @spec parse_part_2(String.t()) :: input_part_2 | {:error, any()}
+  @spec parse_part_2(String.t()) :: input_part_2
   def parse_part_2(input) do
     input |> parse_part_1()
   end
