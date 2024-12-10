@@ -57,13 +57,6 @@ defmodule AOC2024.Day09 do
     input |> parse_part_1()
   end
 
-  def remove_or_delete(map, key, value) do
-    case length(value) do
-      0 -> Map.delete(map, key)
-      _ -> Map.put(map, key, value)
-    end
-  end
-
   @spec pop_match(integer(), list(list(integer()))) :: {list(integer()), list(list(integer()))}
   def pop_match(0, files), do: {nil, files}
   def pop_match(_, []), do: {nil, []}
