@@ -38,10 +38,10 @@ jobs:
 
     - name: Setup input cache
       id: aoc-inputs
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: lib/**/input.txt
-        key: aoc-inputs-${{ hashFiles('lib/**/input.txt') }}
+        key: aoc-inputs-
         restore-keys: |
           aoc-inputs-
           aoc-inputs
@@ -50,6 +50,13 @@ jobs:
       run: mix input.get
       env:
         AOC_SESSION: ${{ secrets.AOC_SESSION }}
+
+    - name: Save inputs
+      id: save-aoc-inputs
+      uses: actions/cache/save@v4
+      with:
+        path: lib/**/input.txt
+        key: aoc-inputs-${{ hashFiles('lib/**/input.txt') }}
 
     - name: Run tests
       run: mix test
