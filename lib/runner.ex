@@ -10,7 +10,8 @@ defmodule AOC2024.Runner do
       AOC2024.Day07,
       AOC2024.Day08,
       AOC2024.Day09,
-      AOC2024.Day10
+      AOC2024.Day10,
+      AOC2024.Day11
     ]
   end
 
@@ -27,6 +28,7 @@ defmodule AOC2024.Runner do
 
   def run_problem_part(input, parse, solve) do
     warmup(input, parse, solve)
+    Memoize.Cache.invalidate()
 
     {parse_time, parsed} = :timer.tc(fn -> input |> parse.() end)
     {solve_time, solved} = :timer.tc(fn -> parsed |> solve.() end)
