@@ -7,8 +7,8 @@ defmodule AOC2024.Day11 do
 
   def name(), do: "Day 11: Plutonian Pebbles"
 
-  @type input_part_1 :: any()
-  @type input_part_2 :: any()
+  @type input_part_1 :: list(integer())
+  @type input_part_2 :: input_part_1
   @type output_part_1 :: integer()
   @type output_part_2 :: integer()
 
